@@ -1,0 +1,136 @@
+/* Reset & Variabel */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #020202;
+    --term-bg: rgba(5, 10, 5, 0.9);
+    --neon-green: #0f0;
+    --dark-green: #004400;
+    --danger-red: #ff003c;
+    --glitch-color: #0ff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--neon-green);
+    font-family: 'VT323', monospace; /* Font retro yang sangat cocok */
+    font-size: 1.3rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+/* Efek CRT Scanlines */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.terminal-container {
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    background-color: var(--term-bg);
+    border: 2px solid var(--dark-green);
+    box-shadow: inset 0 0 18px var(--dark-green), 0 0 20px rgba(0, 255, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+}
+
+.terminal-header {
+    background-color: var(--dark-green);
+    color: var(--bg-color);
+    padding: 5px 10px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.terminal-body {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Kustomisasi Scrollbar */
+.terminal-body::-webkit-scrollbar { width: 10px; }
+.terminal-body::-webkit-scrollbar-thumb { background: var(--dark-green); }
+
+.warning {
+    color: var(--danger-red);
+    text-shadow: 0 0 5px var(--danger-red);
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.highlight {
+    color: var(--bg-color);
+    background-color: var(--neon-green);
+    padding: 0 5px;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.prompt {
+    margin-right: 10px;
+}
+
+#user-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--neon-green);
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    width: 100%;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.output-result {
+    margin: 10px 0 20px 0;
+    white-space: pre-wrap;
+    border-left: 2px solid var(--dark-green);
+    padding-left: 10px;
+}
+
+.error-text { color: var(--danger-red); text-shadow: 0 0 5px var(--danger-red);}
+.secret-text { color: var(--glitch-color); text-shadow: 0 0 5px var(--glitch-color);}
+
+/* Efek Foto Hacker Terminal */
+.hacker-avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 12px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    
+    /* Mengubah foto biasa menjadi hijau neon & kontras tinggi */
+    filter: grayscale(100%) sepia(100%) hue-rotate(90deg) saturate(500%) contrast(150%);
+    image-rendering: pixelated;
+}

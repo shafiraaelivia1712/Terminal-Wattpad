@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURE_DATABASE_ACCESS</title>
+    <!-- Font bergaya monospace/terminal -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Efek Garis Layar (Scanlines) -->
+    <div class="scanlines"></div>
+
+    <div class="terminal-container">
+        <!-- Header Terminal -->
+        <div class="terminal-header">
+            <span class="title">ENCRYPTED CONNECTION // SYSTEM: WATTPAD_ARCHIVE</span>
+        </div>
+
+        <!-- Body Terminal -->
+        <div class="terminal-body" id="terminal-body">
+            <div class="output">
+                <p class="warning">WARNING: UNAUTHORIZED ACCESS DETECTED.</p>
+                <p>Memuat Sistem Pusat Data...</p>
+                <p>Koneksi aman berhasil dibuat. Selamat datang, <span class="highlight">Auwia_Riza</span>.</p>
+                <br>
+                <p>Ketik <span class="highlight">'start'</span> untuk melihat daftar perintah sistem.</p>
+                <br>
+            </div>
+
+            <!-- Area Riwayat Command -->
+            <div id="command-history"></div>
+
+            <!-- Baris Input Command -->
+            <div class="input-line">
+                <span class="prompt">auwiariza@database:~$</span>
+                <input type="text" id="user-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
